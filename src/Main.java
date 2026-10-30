@@ -24,5 +24,30 @@ public class Main {
             System.out.print(Suma[i] + ",");
         }
         System.out.println("}");
+        int[][] mix = new int [3][m];
+        for (int i=0;i< Suma.length;i++){
+            mix[0][i]=Suma[i];
+        }
+
+        for (int j=0 ;j<m;j++){
+            int min=numeros[0][j];
+            int max=numeros[0][j];
+            for (int i=0; i<n;i++){
+                if (numeros[i][j]<min){
+                    min=numeros[i][j];
+                }
+                if (numeros[i][j]>max){
+                    max=numeros[i][j];
+                }
+            }
+            mix[1][j]=max;
+            mix[2][j]=min;
+        }
+        for (int i=0;i<mix.length;i++){
+            for (int j=0;j<mix[i].length;j++){
+                System.out.print("|"+mix[i][j]+"|");
+            }
+            System.out.println();
+        }
     }
 }
