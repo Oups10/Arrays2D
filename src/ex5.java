@@ -1,24 +1,22 @@
 import java.util.Scanner;
-
 public class ex5 {
     public static void main(String[] args) {
+        //a)
         float[][] notas = new float[20][6];
         Scanner sc = new Scanner(System.in);
         for (int i=0 ; i<notas.length;i++){
             for (int j=0 ; j<3;j++){
                 System.out.println("introduix la nota "+(j+1)+" de alumno "+(i+1));
-                notas[i][j]= sc.nextInt();
+                notas[i][j]= sc.nextFloat();
             }
         }
-        float med=0;
+        //b)
         for (int i=0 ; i<notas.length;i++) {
-            med = (notas[i][0]+notas[i][1]+notas[i][2])/3;
-            notas[i][3]=med;
-        }
-        for (int i=0 ; i<notas.length;i++) {
+            float Suma=0;
             float min=notas[i][0];
             float max=notas[i][0];
             for (int j=0;j<3;j++){
+                Suma+=notas[i][j];
                 if (notas[i][j]<min){
                     min=notas[i][j];
                 }
@@ -26,9 +24,11 @@ public class ex5 {
                     max=notas[i][j];
                 }
             }
+            notas[i][3]=Suma/3;
             notas[i][4]=max;
             notas[i][5]=min;
         }
+        //c)
         System.out.println("------------------------");
         for (int i=0;i<notas.length;i++){
             for (int j=0;j<notas[i].length;j++){
@@ -38,6 +38,7 @@ public class ex5 {
             System.out.println();
         }
         System.out.println("------------------------");
+        // d)
         float mejor=notas[0][3];
         float peor=notas[0][3];
         for (int i=0;i< notas.length;i++){
